@@ -14,17 +14,23 @@
 ActiveRecord::Schema.define(version: 20151123210345) do
 
   create_table "ends", force: :cascade do |t|
+    t.integer  "start_id"
+    t.integer  "user_id"
     t.string   "name"
+    t.boolean  "private",    default: false
     t.integer  "elevation"
+    t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
+
+  add_index "ends", ["start_id"], name: "index_ends_on_start_id"
+  add_index "ends", ["user_id"], name: "index_ends_on_user_id"
 
   create_table "route_times", force: :cascade do |t|
     t.integer  "length"
-    t.integer  "start_id"
     t.integer  "end_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -32,18 +38,22 @@ ActiveRecord::Schema.define(version: 20151123210345) do
   end
 
   add_index "route_times", ["end_id"], name: "index_route_times_on_end_id"
-  add_index "route_times", ["start_id"], name: "index_route_times_on_start_id"
   add_index "route_times", ["user_id"], name: "index_route_times_on_user_id"
 
   create_table "starts", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.boolean  "private",     default: false
+    t.integer  "user_id"
     t.integer  "elevation"
+    t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
+
+  add_index "starts", ["user_id"], name: "index_starts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

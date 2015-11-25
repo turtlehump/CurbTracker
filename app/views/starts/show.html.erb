@@ -11,8 +11,27 @@
 </p>
 
 <p>
+  <strong>Private:</strong>
+  <%= @start.private %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @start.address %>
+</p>
+
+<p>
   <strong>Elevation:</strong>
   <%= @start.elevation %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @start.latitude %>
+</p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @start.longitude %>
 </p>
 
 <%= link_to 'Edit', edit_start_path(@start) %> |

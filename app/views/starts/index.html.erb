@@ -2,13 +2,14 @@
 
 <h1>Listing Starts</h1>
 
-<table>
+<table cellpadding="3" border="1">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Address</th>
+      <th>Private</th>
       <th>Elevation</th>
-      <th colspan="3"></th>
+      <th>Description</th>
     </tr>
   </thead>
 
@@ -16,8 +17,10 @@
     <% @starts.each do |start| %>
       <tr>
         <td><%= start.name %></td>
-        <td><%= start.description %></td>
+        <td><%= start.address %></td>
+        <td><%= start.private %></td>
         <td><%= start.elevation %></td>
+        <td><%= start.description %></td>
         <td><%= link_to 'Show', start %></td>
         <td><%= link_to 'Edit', edit_start_path(start) %></td>
         <td><%= link_to 'Destroy', start, method: :delete, data: { confirm: 'Are you sure?' } %></td>
