@@ -4,7 +4,8 @@ class CreateStarts < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.boolean :private, default: :false
-      t.references :user,  index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
+
       t.integer :elevation
       t.string :address
       t.float :longitude

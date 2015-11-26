@@ -11,34 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123210345) do
+ActiveRecord::Schema.define(version: 20151126005106) do
 
   create_table "ends", force: :cascade do |t|
-    t.integer  "start_id"
-    t.integer  "user_id"
     t.string   "name"
-    t.boolean  "private",    default: false
+    t.string   "description"
+    t.integer  "user_id"
+    t.boolean  "private",     default: false
     t.integer  "elevation"
     t.string   "address"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  add_index "ends", ["start_id"], name: "index_ends_on_start_id"
   add_index "ends", ["user_id"], name: "index_ends_on_user_id"
 
   create_table "route_times", force: :cascade do |t|
     t.integer  "length"
-    t.integer  "end_id"
+    t.integer  "route_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "route_times", ["end_id"], name: "index_route_times_on_end_id"
+  add_index "route_times", ["route_id"], name: "index_route_times_on_route_id"
   add_index "route_times", ["user_id"], name: "index_route_times_on_user_id"
+
+  create_table "routes", force: :cascade do |t|
+    t.integer  "start_id"
+    t.integer  "end_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "routes", ["end_id"], name: "index_routes_on_end_id"
+  add_index "routes", ["start_id"], name: "index_routes_on_start_id"
 
   create_table "starts", force: :cascade do |t|
     t.string   "name"
