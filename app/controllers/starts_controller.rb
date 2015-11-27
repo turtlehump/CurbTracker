@@ -69,6 +69,6 @@ class StartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def start_params
-      params.require(:start).permit(:name, :description, :address, :elevation, :private)
+      params.require(:start).permit(:name, :description, :address, :elevation, :private, :latitude, :longitude)
     end
 end

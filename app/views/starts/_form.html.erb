@@ -27,6 +27,19 @@
     <%= f.label :elevation %><br>
     <%= f.text_field :elevation %>
   </div>
+
+  <p>
+  The latitude and longitude will be automatically set if you input a complete and valid address. Only set the latitude and longitude of your start if it does not have a numbered address. On creation it will overwrite the given lat/long with the lat/long of the given address. Your address will be changed if you edit either the longitude or latitude.
+  </p>
+
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
