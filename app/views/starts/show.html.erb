@@ -34,5 +34,9 @@
   <%= @start.longitude %>
 </p>
 
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=15&markers=#{@start.latitude},#{@start.longitude}&center=#{@start.latitude},#{@start.longitude}&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ" %>
+<br>
+
+
 <%= link_to 'Edit', edit_start_path(@start) %> |
 <%= link_to 'Back', starts_path %>
