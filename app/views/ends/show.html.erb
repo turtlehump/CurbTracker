@@ -2,37 +2,37 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @start.name %>
+  <%= @end.name %>
 </p>
 <p>
   <strong>Description:</strong>
-  <%= @start.description %>
+  <%= @end.description %>
 </p>
 <p>
   <strong>Address:</strong>
-  <%= @start.address %>
+  <%= @end.address %>
 </p>
 <p>
   <strong>Elevation:</strong>
-  <%= @start.elevation %>
+  <%= @end.elevation %>
 </p>
 <p>
   <strong>Latitude:</strong>
-  <%= @start.latitude %>
+  <%= @end.latitude %>
 </p>
 <p>
   <strong>Longitude:</strong>
-  <%= @start.longitude %>
+  <%= @end.longitude %>
 </p>
 
 <br>
 <%= image_tag @map_str %>
 <br>
 
-<% @start.routes.each do |r| %>
- <%= link_to "#{r.end.name}", r %>
+<% @end.routes.each do |r| %>
+ <%= link_to "#{r.start.name}", r %>
  <br>
 <% end %>
 
-<%= link_to "Edit", edit_start_path(@start) %> |
-<%= link_to "Back", starts_path %>
+<%= link_to "Edit", edit_end_path(@end) %> |
+<%= link_to "Back", ends_path %>
