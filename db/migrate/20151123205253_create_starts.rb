@@ -3,13 +3,12 @@ class CreateStarts < ActiveRecord::Migration
     create_table :starts do |t|
       t.string :name
       t.string :description
-      t.boolean :private, default: :false
       t.references :user, index: true, foreign_key: true
 
       t.integer :elevation
       t.string :address
-      t.float :longitude
       t.float :latitude
+      t.float :longitude
 
       t.timestamps null: false
     end

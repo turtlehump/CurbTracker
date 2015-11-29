@@ -52,14 +52,13 @@ ActiveRecord::Schema.define(version: 20151126005106) do
   create_table "starts", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.boolean  "private",     default: false
     t.integer  "user_id"
     t.integer  "elevation"
     t.string   "address"
-    t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.float    "longitude"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "starts", ["user_id"], name: "index_starts_on_user_id"

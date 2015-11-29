@@ -10,6 +10,7 @@ class StartsController < ApplicationController
   # GET /starts/1
   # GET /starts/1.json
   def show
+    @map_str = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=14&center=#{@start.latitude},#{@start.longitude}&markers=#{@start.latitude},#{@start.longitude}&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ"
   end
 
   # GET /starts/new
@@ -69,6 +70,6 @@ class StartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def start_params
-      params.require(:start).permit(:name, :description, :address, :elevation, :private, :latitude, :longitude)
+      params.require(:start).permit(:name, :description, :address, :elevation, :latitude, :longitude)
     end
 end
