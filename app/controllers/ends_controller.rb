@@ -26,11 +26,9 @@ class EndsController < ApplicationController
 
     respond_to do |format|
       if @end.save
-        format.html { redirect_to @end, notice: 'End was successfully created.' }
-        format.json { render :show, status: :created, location: @end }
+        redirect_to @end, notice: 'End was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @end.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
@@ -39,11 +37,9 @@ class EndsController < ApplicationController
   def update
     respond_to do |format|
       if @end.update(end_params)
-        format.html { redirect_to @end, notice: 'End was successfully updated.' }
-        format.json { render :show, status: :ok, location: @end }
+        redirect_to @end, notice: 'End was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @end.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
@@ -52,8 +48,7 @@ class EndsController < ApplicationController
   def destroy
     @end.destroy
     respond_to do |format|
-      format.html { redirect_to ends_url, notice: 'End was successfully destroyed.' }
-      format.json { head :no_content }
+      redirect_to ends_url, notice: 'End was successfully destroyed.'
     end
   end
 

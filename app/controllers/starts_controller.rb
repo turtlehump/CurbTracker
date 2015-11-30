@@ -2,13 +2,11 @@ class StartsController < ApplicationController
   before_action :set_start, only: [:show, :edit, :update, :destroy]
 
   # GET /starts
-  # GET /starts.json
   def index
     @starts = Start.all
   end
 
   # GET /starts/1
-  # GET /starts/1.json
   def show
     @map_str = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=14&center=#{@start.latitude},#{@start.longitude}&markers=#{@start.latitude},#{@start.longitude}&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ"
   end
@@ -23,42 +21,34 @@ class StartsController < ApplicationController
   end
 
   # POST /starts
-  # POST /starts.json
   def create
     @start = Start.new(start_params)
 
     respond_to do |format|
       if @start.save
-        format.html { redirect_to @start, notice: 'Start was successfully created.' }
-        format.json { render :show, status: :created, location: @start }
+        redirect_to @start, notice: 'Start was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @start.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
 
   # PATCH/PUT /starts/1
-  # PATCH/PUT /starts/1.json
   def update
     respond_to do |format|
       if @start.update(start_params)
-        format.html { redirect_to @start, notice: 'Start was successfully updated.' }
-        format.json { render :show, status: :ok, location: @start }
+        redirect_to @start, notice: 'Start was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @start.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
 
   # DELETE /starts/1
-  # DELETE /starts/1.json
   def destroy
     @start.destroy
     respond_to do |format|
-      format.html { redirect_to starts_url, notice: 'Start was successfully destroyed.' }
-      format.json { head :no_content }
+      redirect_to starts_url, notice: 'Start was successfully destroyed.'
     end
   end
 
