@@ -19,6 +19,8 @@ class RoutesController < ApplicationController
     @map_str = @map_str + "&markers=color:green%7Clabel:S%7C40.#{s.latitude},#{s.longitude}"  #label S for start
     @map_str = @map_str + "&markers=color:red%7Clabel:E%7C40.#{e.latitude},#{e.longitude}"  #label E for end
     @map_str = @map_str + "&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ"
+
+    @route_time = @route.route_times.new
   end
 
   # GET /routes/new
@@ -31,22 +33,19 @@ class RoutesController < ApplicationController
   # POST /routes
   def create
     @route = Route.new(route_params)
+    @route.user = current_user
 
-    respond_to do |format|
-      if @route.save
-        redirect_to @route, notice: 'Route was successfully created.'
-      else
-        render :new
-      end
+    if @route.save
+      redirect_to @route, notice: 'Route was successfully created.'
+    else
+      render :new
     end
   end
 
   # DELETE /routes/1
   def destroy
     @route.destroy
-    respond_to do |format|
-      redirect_to routes_url, notice: 'Route was successfully destroyed.'
-    end
+    redirect_to routes_url, notice: 'Route was successfully destroyed.'
   end
 
   private

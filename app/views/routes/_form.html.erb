@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :start %><br>
-    <%= f.text_field :start_id %>
+    <%= f.select :start_id, @starts.map{ |s| [s.name, s.id] }  %>
   </div>
   <div class="field">
     <%= f.label :end %><br>
-    <%= f.text_field :end_id %>
+    <%= f.select :end_id, @ends.map{ |e| [e.name, e.id] }  %>
   </div>
   <div class="actions">
     <%= f.submit %>

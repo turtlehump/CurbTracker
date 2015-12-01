@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151126005106) do
   add_index "route_times", ["user_id"], name: "index_route_times_on_user_id"
 
   create_table "routes", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "start_id"
     t.integer  "end_id"
     t.datetime "created_at", null: false
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151126005106) do
 
   add_index "routes", ["end_id"], name: "index_routes_on_end_id"
   add_index "routes", ["start_id"], name: "index_routes_on_start_id"
+  add_index "routes", ["user_id"], name: "index_routes_on_user_id"
 
   create_table "starts", force: :cascade do |t|
     t.string   "name"

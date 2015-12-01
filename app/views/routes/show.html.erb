@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2>
-  <%= @route.start.name + " to " @route.end.name %>
+  <%= @route.start.name + " to " + @route.end.name %>
 </h2>
 
 <br>
@@ -12,10 +12,15 @@
 <% @route.route_times.each do |time| %>
   <% if !time.new_record? %>
     <div>
-      <%= time.minutes + ":" time.seconds %>
+      <%= time.minutes + ":" + time.seconds %>
+      <td><%= link_to 'Destroy', time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </div>
   <% end %>
 <% end %>
+<br>
+<h5>Create New Time</h5>
+<%= render 'route_times/form' %>
+<br>
 
 <%= link_to "Edit", edit_route_path(@route) %> |
 <%= link_to "Back", routes_path %>
