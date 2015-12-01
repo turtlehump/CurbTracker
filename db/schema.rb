@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20151126005106) do
   add_index "ends", ["user_id"], name: "index_ends_on_user_id"
 
   create_table "route_times", force: :cascade do |t|
-    t.integer  "length"
+    t.integer  "minutes",    default: 0
+    t.integer  "seconds",    default: 0
     t.integer  "route_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "route_times", ["route_id"], name: "index_route_times_on_route_id"
