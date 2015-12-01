@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @route.start.name + " to " @route.end.name %>
+</h2>
+
+<br>
+<%= image_tag @map_str %>
+<br>
+
+<h4>Times</h4>
+<% @route.route_times.each do |time| %>
+  <% if !time.new_record? %>
+    <div>
+      <%= time.minutes + ":" time.seconds %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to "Edit", edit_route_path(@route) %> |
+<%= link_to "Back", routes_path %>

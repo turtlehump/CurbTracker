@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Routes</h1>
+
+<table cellpadding="3" border="1">
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.start %></td>
+        <td><%= route.end %></td>
+        <td><%= link_to 'Show', route %></td>
+        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
