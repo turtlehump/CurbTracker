@@ -3,7 +3,7 @@ class StartsController < ApplicationController
 
   # GET /starts
   def index
-    @starts = Start.all
+    @starts = Start.all.map { |s| s if s.user == current_user }.compact
   end
 
   # GET /starts/1
@@ -23,33 +23,28 @@ class StartsController < ApplicationController
   # POST /starts
   def create
     @start = Start.new(start_params)
+    @start.user = current_user
 
-    respond_to do |format|
-      if @start.save
-        redirect_to @start, notice: 'Start was successfully created.'
-      else
-        render :new
-      end
+    if @start.save
+      redirect_to @start, notice: 'Start was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /starts/1
   def update
-    respond_to do |format|
-      if @start.update(start_params)
-        redirect_to @start, notice: 'Start was successfully updated.'
-      else
-        render :edit
-      end
+    if @start.update(start_params)
+      redirect_to @start, notice: 'Start was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /starts/1
   def destroy
     @start.destroy
-    respond_to do |format|
-      redirect_to starts_url, notice: 'Start was successfully destroyed.'
-    end
+    redirect_to starts_url, notice: 'Start was successfully destroyed.'
   end
 
   private

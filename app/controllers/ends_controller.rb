@@ -3,7 +3,7 @@ class EndsController < ApplicationController
 
   # GET /ends
   def index
-    @ends = End.all
+    @ends = End.all.map { |e| e if e.user == current_user }.compact
   end
 
   # GET /ends/1
@@ -23,33 +23,28 @@ class EndsController < ApplicationController
   # POST /ends
   def create
     @end = End.new(end_params)
+    @end.user = current_user
 
-    respond_to do |format|
-      if @end.save
-        redirect_to @end, notice: 'End was successfully created.'
-      else
-        render :new
-      end
+    if @end.save
+      redirect_to @end, notice: 'End was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /ends/1
   def update
-    respond_to do |format|
-      if @end.update(end_params)
-        redirect_to @end, notice: 'End was successfully updated.'
-      else
-        render :edit
-      end
+    if @end.update(end_params)
+      redirect_to @end, notice: 'End was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /ends/1
   def destroy
     @end.destroy
-    respond_to do |format|
-      redirect_to ends_url, notice: 'End was successfully destroyed.'
-    end
+    redirect_to ends_url, notice: 'End was successfully destroyed.'
   end
 
   private
