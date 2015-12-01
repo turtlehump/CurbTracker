@@ -41,3 +41,10 @@ starts = Start.create(
     {name: "Mitchs House2", description: "mismatch between address and lat/long", address: "102 Blossom Way, Scotts Valley CA", latitude: 50, longitude: 50, user_id: 28}
   ]
 )
+
+
+ends = End.create(
+  [
+    {name: "Chico Appartment", address: "1114 Nord Ave, Chico CA", user_id: 28}
+  ]
+)
