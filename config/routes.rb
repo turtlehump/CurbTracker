@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :starts
   resources :ends
-  resources :routes
+  resources :routes do
+    resources :route_times, shallow: true
+  end
 
   root 'starts#index'
 

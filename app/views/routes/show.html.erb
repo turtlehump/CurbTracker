@@ -8,17 +8,29 @@
 <%= image_tag @map_str %>
 <br>
 
-<h4>Times</h4>
-<% @route.route_times.each do |time| %>
-  <% if !time.new_record? %>
-    <div>
-      <%= time.minutes + ":" + time.seconds %>
-      <td><%= link_to 'Destroy', time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </div>
-  <% end %>
-<% end %>
-<br>
-<h5>Create New Time</h5>
+<h3>Times</h3>
+<table cellpadding="3" border="1">
+  <thead>
+    <tr>
+      <th>Minutes</th>
+      <th>Seconds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @route.route_times.each do |time| %>
+      <% if !time.new_record? %>
+        <tr>
+          <td><%= time.minutes %></td>
+          <td><%= time.seconds %></td>
+          <td><%= link_to 'Destroy', time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <br>
+  </tbody>
+</table>
+
+<h3>Create New Time</h3>
 <%= render 'route_times/form' %>
 <br>
 
