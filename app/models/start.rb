@@ -17,4 +17,6 @@ class Start < ActiveRecord::Base
   #if I separate them out into 2 lines then the 2nd line overwrites the first line
   #will only update when the 2nd one is modified. Changing only the first one has no effect
 
+  validates :name, presence: true
+
 end
