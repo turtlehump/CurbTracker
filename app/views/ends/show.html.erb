@@ -30,9 +30,8 @@
 <br>
 
 <% @end.routes.each do |r| %>
- <%= link_to "#{r.start.name}", r %>
- <br>
+ <%= link_to "#{r.start.name}", r %><br>
 <% end %>
-
+<br>
 <%= link_to "Edit", edit_end_path(@end) %> |
-<%= link_to "Back", ends_path %>
+<%= link_to "Ends", ends_path %>

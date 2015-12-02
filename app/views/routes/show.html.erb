@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @route.start.name + " to " + @route.end.name %></h2>
+<h2><%= link_to "#{@route.start.name}", @route.start %> to <%= link_to "#{@route.end.name}", @route.end %></h2>
 <h4><%= "#{@distance} miles #{@direction} (straight line)" %></h2>
 
 
