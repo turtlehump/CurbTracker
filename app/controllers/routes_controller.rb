@@ -54,8 +54,8 @@ class RoutesController < ApplicationController
 
   # GET /routes/new
   def new
-    @starts = Start.all.map { |s| s if s.user = current_user }
-    @ends = End.all.map { |e| e if e.user = current_user }
+    @starts = Start.all.map { |s| s if s.user == current_user }.compact
+    @ends = End.all.map { |e| e if e.user == current_user }.compact
     @route = Route.new
   end
 
