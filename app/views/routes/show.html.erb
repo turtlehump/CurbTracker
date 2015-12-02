@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h2>
-  <%= @route.start.name + " to " + @route.end.name %>
-</h2>
+<h2><%= @route.start.name + " to " + @route.end.name %></h2>
+<h4><%= "#{@distance} miles #{@direction} (straight line)" %></h2>
+
+
 
 <br>
 <%= image_tag @map_str %>

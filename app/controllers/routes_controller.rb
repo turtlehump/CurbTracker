@@ -12,7 +12,36 @@ class RoutesController < ApplicationController
     e = @route.end
     center_lat = (s.latitude + e.latitude) / 2
     center_long = (s.longitude + e.longitude) / 2
-    zoom = 10 #change this
+    @distance = @route.start.distance_to(@route.end).round(2)
+    @direction = @route.start.bearing_to(@route.end)
+    @direction = Geocoder::Calculations.compass_point(@direction)
+    if @distance < 1.4
+      zoom = 14
+    elsif @distance < 3
+      zoom = 13
+    elsif @distance < 5
+      zoom = 12
+    elsif @distance < 10
+      zoom = 11
+    elsif @distance < 13
+      zoom = 10
+    elsif @distance < 20
+      zoom = 9
+    elsif @distance < 35
+      zoom = 8
+    elsif @distance < 70
+      zoom = 7
+    elsif @distance < 200
+      zoom = 6
+    elsif @distance < 200
+      zoom = 5
+    elsif @distance < 300
+      zoom = 4
+    elsif @distance < 450
+      zoom = 3
+    elsif @distance < 700
+      zoom = 2
+    end
     @map_str = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false"
     @map_str = @map_str + "&zoom=#{zoom}"
     @map_str = @map_str + "&center=#{center_lat},#{center_long}"
