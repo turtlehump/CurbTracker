@@ -29,9 +29,9 @@
 <%= image_tag @map_str %>
 <br>
 
+<h3>Routes from here</h3>
 <% @start.routes.each do |r| %>
- <%= link_to "#{r.end.name}", r %>
- <br>
+ <%= link_to "#{r.end.name}", r %><br>
 <% end %>
 
 <%= link_to "Edit", edit_start_path(@start) %> |
