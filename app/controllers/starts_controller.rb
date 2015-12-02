@@ -3,7 +3,7 @@ class StartsController < ApplicationController
 
   # GET /starts
   def index
-    @starts = Start.all.map { |s| s if s.user == current_user }.compact
+    @starts = Start.all.map { |s| s if s.user == current_user }.compact.sort_by{ |s| s[:name] }
   end
 
   # GET /starts/1

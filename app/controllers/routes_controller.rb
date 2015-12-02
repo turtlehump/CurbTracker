@@ -3,7 +3,7 @@ class RoutesController < ApplicationController
 
   # GET /routes
   def index
-    @routes = Route.all
+    @routes = Route.all.map { |r| r if r.user == current_user }.compact.sort_by { |r| r.start[:name] }
   end
 
   # GET /routes/1

@@ -3,7 +3,7 @@ class EndsController < ApplicationController
 
   # GET /ends
   def index
-    @ends = End.all.map { |e| e if e.user == current_user }.compact
+    @ends = End.all.map { |e| e if e.user == current_user }.compact.sort_by { |e| e[:name] }
   end
 
   # GET /ends/1
