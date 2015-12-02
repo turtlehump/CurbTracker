@@ -16,8 +16,8 @@ class RoutesController < ApplicationController
     @map_str = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false"
     @map_str = @map_str + "&zoom=#{zoom}"
     @map_str = @map_str + "&center=#{center_lat},#{center_long}"
-    @map_str = @map_str + "&markers=color:green%7Clabel:S%7C40.#{s.latitude},#{s.longitude}"  #label S for start
-    @map_str = @map_str + "&markers=color:red%7Clabel:E%7C40.#{e.latitude},#{e.longitude}"  #label E for end
+    @map_str = @map_str + "&markers=color:green%7Clabel:S%7C#{s.latitude},#{s.longitude}"  #label S for start
+    @map_str = @map_str + "&markers=color:red%7Clabel:E%7C#{e.latitude},#{e.longitude}"  #label E for end
     @map_str = @map_str + "&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ"
 
     @route_time = @route.route_times.new
