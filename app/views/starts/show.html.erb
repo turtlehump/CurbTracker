@@ -29,7 +29,7 @@
 <%= image_tag @map_str %>
 <br>
 
-<h3>Routes from here</h3>
+<h4>Routes that start here</h4>
 <% @start.routes.each do |r| %>
  <%= link_to "#{r.end.name}", r %><br>
 <% end %>
