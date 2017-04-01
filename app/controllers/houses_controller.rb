@@ -12,14 +12,18 @@ class HousesController < ApplicationController
       @running_lat = @running_lat + h.latitude
       @running_long = @running_long + h.longitude
     }
-    @center_lat = @running_lat / @showing_houses.size
-    @center_long = @running_long / @showing_houses.size
-    @map_str = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=14"
-    @map_str = @map_str + "&center=#{@center_lat},#{@center_long}"
-    @showing_houses.each { |sh|
-      @map_str = @map_str + "&markers=#{sh.latitude},#{sh.longitude}"
-    }
-    @map_str = @map_str + "&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ"
+    if @showing_houses.size > 0
+      @center_lat = @running_lat / @showing_houses.size
+      @center_long = @running_long / @showing_houses.size
+      @map_str = "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=14"
+      @map_str = @map_str + "&center=#{@center_lat},#{@center_long}"
+      @showing_houses.each { |sh|
+        @map_str = @map_str + "&markers=#{sh.latitude},#{sh.longitude}"
+      }
+      @map_str = @map_str + "&key=AIzaSyCqWQ3TJM2l6Kb-nxSRUURzLy4agP8-9YQ"
+    else
+      @map_str = ""
+    end
   end
 
   # GET /houses/1
