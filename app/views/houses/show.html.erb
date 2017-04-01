@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @house.address %>
+</p>
+<p>
+  <strong>Latitude:</strong>
+  <%= @house.latitude %>
+</p>
+<p>
+  <strong>Longitude:</strong>
+  <%= @house.longitude %>
+</p>
+
+<br>
+<%= @map_str %>
+<br>
+
+<%= link_to "Edit", edit_house_path(@house) %> |
+<%= link_to "Houses", houses_path %>

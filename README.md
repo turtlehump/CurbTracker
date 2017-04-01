@@ -1,2 +1,2 @@
-# routekeeper
-Keep track of routes via Google Maps for car trips, bike rides, and runs or walks
+# CurbTracker
+Keeps track of curbs that need to be painted. Written in Ruby on Rails.

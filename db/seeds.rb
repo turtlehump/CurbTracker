@@ -31,20 +31,20 @@ users = User.create(
   ]
 )
 
-starts = Start.create(
-  [
-    {name: "Home", description: "only setting address", address: "16731 Magneson Loop, Los Gatos CA", user_id: 28},
-    {name: "Home2", description: "only setting lat/long", latitude: 37.233878, longitude: -121.96236, user_id: 28},
-    {name: "Home3", description: "mismatch between address and lat/long", address: "16731 Magneson Loop, Los Gatos CA", latitude: 50, longitude: 50, user_id: 28},
-    {name: "Mitchs House", description: "only setting address", address: "102 Blossom Way, Scotts Valley CA", user_id: 28},
-    {name: "Mitchs House2", description: "only setting lat/long", latitude: 37.05551, longitude: -121.99193, user_id: 28},
-    {name: "Mitchs House2", description: "mismatch between address and lat/long", address: "102 Blossom Way, Scotts Valley CA", latitude: 50, longitude: 50, user_id: 28}
-  ]
-)
+#starts = Start.create(
+#  [
+#    {name: "Home", description: "only setting address", address: "16731 Magneson Loop, Los Gatos CA", user_id: 28},
+#    {name: "Home2", description: "only setting lat/long", latitude: 37.233878, longitude: -121.96236, user_id: 28},
+#    {name: "Home3", description: "mismatch between address and lat/long", address: "16731 Magneson Loop, Los Gatos CA", latitude: 50, longitude: 50, user_id: 28},
+#    {name: "Mitchs House", description: "only setting address", address: "102 Blossom Way, Scotts Valley CA", user_id: 28},
+#    {name: "Mitchs House2", description: "only setting lat/long", latitude: 37.05551, longitude: -121.99193, user_id: 28},
+#    {name: "Mitchs House2", description: "mismatch between address and lat/long", address: "102 Blossom Way, Scotts Valley CA", latitude: 50, longitude: 50, user_id: 28}
+#  ]
+#)
 
 
-ends = End.create(
-  [
-    {name: "Chico Appartment", address: "1114 Nord Ave, Chico CA", user_id: 28}
-  ]
-)
+#ends = End.create(
+#  [
+#    {name: "Chico Appartment", address: "1114 Nord Ave, Chico CA", user_id: 28}
+#  ]
+#)
