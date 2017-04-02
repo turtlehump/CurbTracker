@@ -11,9 +11,29 @@
     </div>
   <% end %>
 
+  YOU MUST BE CONNECTED TO THE INTERNET FOR THE ADRESS TO BE CONVERTED TO LATITUDE AND LONGITUDE
+
   <div class="field">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.radio_button(:paid, @house.paid = true) %>
+    <%= f.label(:paid, "paid") %>
+    <%= f.radio_button(:paid, @house.paid = false) %>
+    <%= f.label(:paid, "not paid") %>
   </div>
   <div class="actions">
     <%= f.submit %>
