@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :route_times, shallow: true
   end
 
-  root 'houses#new'
+  root 'houses#index'
 
 end
